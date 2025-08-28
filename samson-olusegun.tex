@@ -108,18 +108,19 @@
     {
     }
 
-% Fixed joblong environment with proper braces and wrapping
-\newenvironment{joblong}[2]{%
-  \begin{tabularx}{\linewidth}{@{}X r@{}}%
-    \textbf{#1} & #2 \\[3.75pt]%
-  \end{tabularx}%
-  \begin{minipage}[t]{\linewidth}%
-  \begin{itemize}[nosep,after=\strut,leftmargin=1em,itemsep=3pt,label=--]%
-  \ignorespaces
-}{%
-  \end{itemize}%
-  \end{minipage}%
-}
+\newenvironment{joblong}[2]
+    {
+    \begin{tabularx}{\linewidth}{@{}l X r@{}}
+    \textbf{#1} & \hfill &  #2 \\[3.75pt]
+    \end{tabularx}
+    \begin{minipage}[t]{\linewidth}
+    \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt,label=--]
+    }
+    {
+    \end{itemize}
+    \end{minipage}    
+    }
+
 
 
 %----------------------------------------------------------------------------------------
@@ -158,7 +159,7 @@
 
 \section{TECHNICAL EXPERIENCE}
 
-\begin{joblong}{Mavapay Digital Solutions, US -- Software Engineer (Remote, Full-Time)}{December 2024 -- Present}
+\begin{joblong}{Mavapay Digital Solutions, US -- Software Engineer(Remote, Full-Time)}{December 2024 -- Present}
 \item Implement and maintain monitoring and alerting systems, ensuring proactive issue detection and resolution.
 \item Manage cloud servers, databases, and networks, optimizing performance and cost efficiency.
 \item Drive scalability, reliability, and performance improvements across infrastructure and backend systems.
