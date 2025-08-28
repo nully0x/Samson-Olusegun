@@ -108,20 +108,18 @@
     {
     }
 
-% Redesigned joblong environment with wrapping columns
-\newenvironment{joblong}[2]
-    {
-    \begin{tabularx}{\linewidth}{@{}X r@{}} % X column allows wrapping
-    \textbf{#1} & #2 \\[3.75pt]
-    \end{tabularx}
-    \begin{minipage}[t]{\linewidth}
-    \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt,label=--]
-    }
-    {
-    \end{itemize}
-    \end{minipage}
-
-
+% Fixed joblong environment with proper braces and wrapping
+\newenvironment{joblong}[2]{%
+  \begin{tabularx}{\linewidth}{@{}X r@{}}%
+    \textbf{#1} & #2 \\[3.75pt]%
+  \end{tabularx}%
+  \begin{minipage}[t]{\linewidth}%
+  \begin{itemize}[nosep,after=\strut,leftmargin=1em,itemsep=3pt,label=--]%
+  \ignorespaces
+}{%
+  \end{itemize}%
+  \end{minipage}%
+}
 
 
 %----------------------------------------------------------------------------------------
