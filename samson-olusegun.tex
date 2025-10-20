@@ -17,7 +17,6 @@
 %	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 %	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 %	THE SOFTWARE.
-%	
 %-----------------------------------------------------------------------------------------------------------------------------------------------%
 
 \documentclass[a4paper,12pt]{article}
@@ -46,17 +45,25 @@
 \titlespacing{\section}{0pt}{10pt}{10pt}
 
 \newenvironment{joblong}[2]
-    {
-    \begin{tabularx}{\linewidth}{@{}l X r@{}}
-    \textbf{#1} & \hfill &  #2 \\[3.75pt]
-    \end{tabularx}
-    \begin{minipage}[t]{\linewidth}
-    \begin{itemize}[nosep,after=\strut,leftmargin=1em,itemsep=3pt,label=--]
-    }
-    {
-    \end{itemize}
-    \end{minipage}
-    }
+{
+  \vspace{4pt}
+  \noindent
+  \begin{minipage}[t]{0.75\textwidth}
+    \textbf{#1}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.23\textwidth}
+    \raggedleft #2
+  \end{minipage}
+  \vspace{2pt}
+  \begin{itemize}[leftmargin=1em,itemsep=3pt,label=--,topsep=2pt]
+}
+{
+  \end{itemize}
+  \vspace{4pt}
+}
+
+
 
 \begin{document}
 \pagestyle{empty}
@@ -68,14 +75,15 @@
 \begin{tabularx}{\linewidth}{@{} C @{}}
 \Huge{Happiness Osatohanmwen Olusegun} \\[7.5pt]
 \textbf{Customer Experience \& Knowledge Management Professional} \\[10pt]
-\normalsize{\textit{Versatile and results-driven professional with experience in customer experience, knowledge management, and learning development. Skilled at improving operational efficiency, enhancing service delivery, and supporting digital transformation initiatives. Currently pursuing an MSc in Disaster and Risk Management, with growing expertise in fintech, project coordination, and product operations. Recognized for strong communication, analytical thinking, and an innovative approach to solving problems.}} \\[10pt]
+\normalsize{\textit{Customer experience and knowledge management professional with 3+ years of experience in banking and fintech operations. Currently on an approved leave of absence from The Alternative Bank Ltd to pursue advanced learning opportunities in product and project management.}} \\[10pt]
 \href{mailto:hapinxosato@gmail.com}{\raisebox{-0.04\height}\faEnvelope\ hapinxosato@gmail.com} \ $|$ \
 \href{tel:+2348100795842}{\raisebox{-0.04\height}\faMobile\ +2348100795842} \ $|$ \
+\href{https://www.linkedin.com/in/happiness-olusegun}{\raisebox{-0.04\height}\faLinkedin\ happiness-olusegun} \ $|$ \
 Abuja, Nigeria
 \end{tabularx}
 
 %----------------------------------------------------------------------------------------
-%	EXPERIENCE
+%	WORK EXPERIENCE
 %----------------------------------------------------------------------------------------
 
 \section{WORK EXPERIENCE}
@@ -86,10 +94,22 @@ Abuja, Nigeria
 \item Monitored knowledge KPIs to measure adoption, performance, and customer satisfaction impact.
 \end{joblong}
 
-\begin{joblong}{The Alternative Bank Ltd — Delight Officer, Customer Experience Group}{Mar 2023 -- Present}
+\begin{joblong}{The Alternative Bank Ltd — Delight Officer (Customer Experience), Customer Experience Group}{Mar 2023 -- Present}
 \item Provided end-to-end customer support, ensuring timely resolution of complex service issues.
 \item Analyzed feedback trends to inform product and process improvements.
 \item Supported operational efficiency initiatives and contributed to a culture of customer delight.
+\end{joblong}
+
+\begin{joblong}{Wema Bank Plc — Customer Support Officer}{Sep 2021 -- Nov 2022}
+\item Handled customer inquiries and complaints across digital and physical channels, maintaining high satisfaction scores.
+\item Supported product onboarding and service requests to improve customer retention.
+\item Collaborated with internal teams to ensure seamless resolution of customer and technical issues.
+\end{joblong}
+
+\begin{joblong}{Tiwis Place of Décor — Sales and Marketing Executive}{Apr 2019 -- Oct 2019}
+\item Promoted décor products and managed client relationships to drive sales growth.
+\item Executed marketing strategies that improved brand visibility and customer engagement.
+\item Supported event setup and logistics for corporate and individual clients.
 \end{joblong}
 
 %----------------------------------------------------------------------------------------
