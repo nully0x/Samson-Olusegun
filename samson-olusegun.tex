@@ -17,146 +17,237 @@
 %	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 %	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 %	THE SOFTWARE.
+%	
+%
 %-----------------------------------------------------------------------------------------------------------------------------------------------%
 
+%----------------------------------------------------------------------------------------
+%	DOCUMENT DEFINITION
+%----------------------------------------------------------------------------------------
+
+% article class because we want to fully customize the page and not use a cv template
 \documentclass[a4paper,12pt]{article}
 
+%----------------------------------------------------------------------------------------
+%	FONT
+%----------------------------------------------------------------------------------------
+
+% % fontspec allows you to use TTF/OTF fonts directly
+% \usepackage{fontspec}
+% \defaultfontfeatures{Ligatures=TeX}
+
+% % modified for ShareLaTeX use
+% \setmainfont[
+% SmallCapsFont = Fontin-SmallCaps.otf,
+% BoldFont = Fontin-Bold.otf,
+% ItalicFont = Fontin-Italic.otf
+% ]
+% {Fontin.otf}
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES
+%----------------------------------------------------------------------------------------
 \usepackage{url}
-\usepackage{parskip}
-\usepackage{color}
-\usepackage{graphicx}
+\usepackage{parskip} 	
+
+%other packages for formatting
+\RequirePackage{color}
+\RequirePackage{graphicx}
 \usepackage[usenames,dvipsnames]{xcolor}
 \usepackage[scale=0.9]{geometry}
+
+%tabularx environment
 \usepackage{tabularx}
+
+%for lists within experience section
 \usepackage{enumitem}
-\newcolumntype{C}{>{\centering\arraybackslash}X}
+
+% centered version of 'X' col. type
+\newcolumntype{C}{>{\centering\arraybackslash}X} 
+
+%to prevent spillover of tabular into next pages
 \usepackage{supertabular}
-\usepackage{titlesec}
+\usepackage{tabularx}
+\newlength{\fullcollw}
+\setlength{\fullcollw}{0.47\textwidth}
+
+%custom \section
+\usepackage{titlesec}				
 \usepackage{multicol}
 \usepackage{multirow}
-\usepackage[style=authoryear,sorting=ynt,maxbibnames=2]{biblatex}
-\usepackage[unicode, draft=false]{hyperref}
-\definecolor{linkcolour}{rgb}{0,0.2,0.6}
-\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}
-\setlength\bibitemsep{1em}
-\usepackage{fontawesome5}
 
+%CV Sections inspired by: 
+%http://stefano.italians.nl/archives/26
 \titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
 \titlespacing{\section}{0pt}{10pt}{10pt}
 
+%for publications
+\usepackage[style=authoryear,sorting=ynt, maxbibnames=2]{biblatex}
+
+%Setup hyperref package, and colours for links
+\usepackage[unicode, draft=false]{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}
+\addbibresource{citations.bib}
+\setlength\bibitemsep{1em}
+
+%for social icons
+\usepackage{fontawesome5}
+
+%debug page outer frames
+%\usepackage{showframe}
+
+
+% job listing environments
+\newenvironment{jobshort}[2]
+    {
+    \begin{tabularx}{\linewidth}{@{}l X r@{}}
+    \textbf{#1} & \hfill &  #2 \\[3.75pt]
+    \end{tabularx}
+    }
+    {
+    }
+
 \newenvironment{joblong}[2]
-{
-  \vspace{4pt}
-  \noindent
-  \begin{minipage}[t]{0.75\textwidth}
-    \textbf{#1}
-  \end{minipage}%
-  \hfill
-  \begin{minipage}[t]{0.23\textwidth}
-    \raggedleft #2
-  \end{minipage}
-  \vspace{2pt}
-  \begin{itemize}[leftmargin=1em,itemsep=3pt,label=--,topsep=2pt]
-}
-{
-  \end{itemize}
-  \vspace{4pt}
-}
+    {
+    \begin{tabularx}{\linewidth}{@{}l X r@{}}
+    \textbf{#1} & \hfill &  #2 \\[3.75pt]
+    \end{tabularx}
+    \begin{minipage}[t]{\linewidth}
+    \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt,label=--]
+    }
+    {
+    \end{itemize}
+    \end{minipage}    
+    }
 
 
 
+%----------------------------------------------------------------------------------------
+%	BEGIN DOCUMENT
+%----------------------------------------------------------------------------------------
 \begin{document}
-\pagestyle{empty}
+
+% non-numbered pages
+\pagestyle{empty} 
 
 %----------------------------------------------------------------------------------------
 %	TITLE
 %----------------------------------------------------------------------------------------
 
+% \begin{tabularx}{\linewidth}{ @{}X X@{} }
+% \huge{Your Name}\vspace{2pt} & \hfill \emoji{incoming-envelope} email@email.com \\
+% \raisebox{-0.05\height}\faGithub\ username \ | \
+% \raisebox{-0.00\height}\faLinkedin\ username \ | \ \raisebox{-0.05\height}\faGlobe \ mysite.com  & \hfill \emoji{calling} number
+% \end{tabularx}
+
 \begin{tabularx}{\linewidth}{@{} C @{}}
-\Huge{Happiness Osatohanmwen Olusegun} \\[7.5pt]
-\textbf{Customer Experience \& Knowledge Management Professional} \\[10pt]
-\normalsize{\textit{Customer experience and knowledge management professional with 3+ years of experience in banking and fintech operations.}} \\[10pt]
-\href{mailto:hapinxosato@gmail.com}{\raisebox{-0.04\height}\faEnvelope\ hapinxosato@gmail.com} \ $|$ \
-\href{tel:+2348100795842}{\raisebox{-0.04\height}\faMobile\ +2348100795842} \ $|$ \
-\href{https://www.linkedin.com/in/happiness-olusegun}{\raisebox{-0.04\height}\faLinkedin\ happiness-olusegun} \ $|$ \
-Abuja, Nigeria
+\Huge{Samson Olusegun} \\[7.5pt]
+\textbf{Software Engineer} \\[10pt]
+\normalsize{\textit{Experience Summary}: A results-driven Software Engineer with a proven track record in translating business needs into efficient technical solutions. Specializes in Typescript, Rust, Python, and Cloud Development, with a keen interest in Bitcoin. Committed to continuous learning and innovation, actively engaged in both tech, and non-tech communities. Passionate about mentoring and fostering growth.} \\[10pt]
+\href{https://linkedin.com/in/samson-olusegun}{\raisebox{-0.04\height}\faLinkedin\ Samson-Olusegun} \  $|$ \
+\href{https://twitter.com/nully0x}{\raisebox{-0.04\height}\faTwitter\ nully0x} \ $|$ \  
+\href{https://github.com/nully0x}{\raisebox{-0.04\height}\faGithub\ nully0x} \ $|$ \
+\href{https://www.nully0x.xyz}{\raisebox{-0.04\height}\faGlobe\ nully0x.xyz} \ $|$ \
+\href{mailto:nully0x@proton.me}{\raisebox{-0.04\height}\faEnvelope\ nully0x@proton.me} \ $|$ \
+\href{tel:+2349160918616}{\raisebox{-0.04\height}\faMobile\ +2349160918616}
 \end{tabularx}
 
 %----------------------------------------------------------------------------------------
-%	WORK EXPERIENCE
+% EXPERIENCE SECTIONS
 %----------------------------------------------------------------------------------------
 
-\section{WORK EXPERIENCE}
+\section{TECHNICAL EXPERIENCE}
 
-\begin{joblong}{The Alternative Bank Ltd — Knowledge Centre Officer, Customer Experience Group}{Jan 2024 -- Mar 2025}
-\item Designed and implemented onboarding and continuous learning programs that strengthened employee competence and service consistency.
-\item Collaborated with department leads to identify operational pain points and developed training materials to address them.
-\item Monitored knowledge KPIs to measure adoption, performance, and customer satisfaction impact.
+\begin{joblong}{Mavapay Digital Solutions, US -- Software Engineer (Remote)}{Dec 2024 -- Present}
+\item Architect and manage scalable backend infrastructure, ensuring high availability and performance for payments systems.
+\item Implement proactive monitoring, alerting, and incident response processes, reducing downtime by 30\%.
+\item Optimize cloud servers, networks, and databases to achieve cost savings and improved system reliability.
+\item Collaborate with CTO to design secure, high-performance backend architecture and product roadmaps.
+\item Develop backend systems on the Bitcoin protocol, enabling seamless crypto-based transactions.
 \end{joblong}
 
-\begin{joblong}{The Alternative Bank Ltd — Delight Officer (Customer Experience), Customer Experience Group}{Mar 2023 -- Present}
-\item Provided end-to-end customer support, ensuring timely resolution of complex service issues.
-\item Analyzed feedback trends to inform product and process improvements.
-\item Supported operational efficiency initiatives and contributed to a culture of customer delight.
+\begin{joblong}{Chaincode Labs, US -- Open Source Developer (Remote)}{Mar 2023 -- Dec 2024}
+\item Engineered and maintained backend infrastructure for Bitcoin Dev Project platform, improving query response times by 40\%.
+\item Designed and built a transcript review system for knowledge based applications, increasing engagement and usability for bitcoin developers.
+\item Built cost-efficient deployment pipelines, reducing release time and improving reliability.
+\item Integrated Lightning Network features (L402, sat rewards) to enhance micropayment processing.
 \end{joblong}
 
-\begin{joblong}{Wema Bank Plc — Customer Support Officer}{Sep 2021 -- Nov 2022}
-\item Handled customer inquiries and complaints across digital and physical channels, maintaining high satisfaction scores.
-\item Supported product onboarding and service requests to improve customer retention.
-\item Collaborated with internal teams to ensure seamless resolution of customer and technical issues.
+\begin{joblong}{Kernel Systems, Nigeria -- Technical Lead (Remote, Part-Time)}{Oct 2022 -- Present}
+\item Led backend architecture design and code reviews, ensuring engineering best practices and maintainability.
+\item Delivered Bitcoin-powered payroll infrastructure supporting multi-currency settlements.
+\item Automated deployment pipelines to streamline release cycles and reduce operational overhead.
 \end{joblong}
 
-\begin{joblong}{Tiwis Place of Décor — Sales and Marketing Executive}{Apr 2019 -- Oct 2019}
-\item Promoted décor products and managed client relationships to drive sales growth.
-\item Executed marketing strategies that improved brand visibility and customer engagement.
-\item Supported event setup and logistics for corporate and individual clients.
+\begin{joblong}{Helgg, Nigeria -- Lead Backend Engineer (Remote, Part-Time)}{Aug 2022 -- May 2023}
+\item Built IoT-enabled e-scooter mobility backend systems, enabling real-time fleet monitoring.
+\item Defined API standards, CI/CD workflows, and infrastructure-as-code practices for engineering teams.
+\item Reduced operational issues through robust error handling and observability tooling.
 \end{joblong}
 
-%----------------------------------------------------------------------------------------
-%	EDUCATION
-%----------------------------------------------------------------------------------------
+\begin{joblong}{Qala Dev, Nigeria -- Bitcoin Protocol Developer Intern (Remote)}{Jan 2021 -- Jul 2021}
+\item Researched Bitcoin and Lightning protocols; contributed to open-source Bitcoin development projects.
+\item Implemented Bitcoin testnet experiments and supported hackathons to improve Lightning adoption.
+\end{joblong}
+
+\begin{joblong}{Adekunle Ajasin University, Nigeria -- Web Developer}{Jan 2021 -- Jun 2021}
+\item Developed student portal web applications to automated student request across departments.
+\item Conducted QA testing and bug resolution, reducing student service downtime.
+\item Collaborated closely with the lead web developer, ensuring rigorous testing and quality assurance of web applications.
+\end{joblong}
+
+\section{OTHER EXPERIENCE}
+
+\begin{joblong}{Propel, Germany -- Technical Jury (Remote)}{Nov 2022 -- Jan 2024}
+\item Conducted 200+ technical interviews, improving candidate quality scores by 15\% for client acceptance.
+\item Standardized evaluation frameworks, cutting review cycles by 20\%.
+\end{joblong}
+
+\begin{joblong}{Tech4Dev, Nigeria -- Frontend Development Consultant (Contract)}{Aug 2022 -- Jun 2023}
+\item Designed and delivered a modern frontend engineering curriculum for 200+ trainees.
+\item Created training resources and assessments that boosted trainee graduation rates.
+\end{joblong}
+
 
 \section{EDUCATION}
 
 \begin{tabularx}{\linewidth}{@{}l X@{}}
-Ahmadu Bello University, Zaria & \textbf{MSc, Disaster and Risk Management} \\
-                               & Expected 2025 \\[10pt]
-Adekunle Ajasin University, Akungba Akoko & \textbf{BSc, Economics Education} \\
-                               & 2019 \\[10pt]
+Adekunle Ajasin University & \textbf{Bachelor of Science in Economics} \\
+                          & December 2015 - April 2021 \\[10pt]
 \end{tabularx}
 
-%----------------------------------------------------------------------------------------
-%	SKILLS
-%----------------------------------------------------------------------------------------
+\section{SKILLS}
 
-\section{KEY SKILLS}
+\begin{tabularx}{\linewidth}{@{}l X@{}}
+\textbf{Programming} & HTML / CSS / Javascript Typescript / Python / Rust / Bitcoin Script / Zig \\
+\textbf{Concepts} & Design Implementation / Test-Driven Development / Microservices / Monolithics \\
+\textbf{Web Frameworks} & Angular / NodeJs / AdonisJs / Express / Actix / Svelte / Axum \\
+\textbf{Database} & MySQL / Firestore / MongoDB / PostgreSQL / DynamoDB \\
+\textbf{Tools} & Git / PowerApps / Docker / TravisCI / Kubernetes / Terraform / Github Actions / Ansible / Pulumi  \\
+\textbf{Data Processing} & Google Colab / Google Data Lab / Azure Data Studio / Microsoft Power BI / Eviews / SPSS / Excel \\
+\textbf{Cloud} & Google Cloud Platform / Azure / AWS / Heroku / Oracle Cloud
+\end{tabularx}
 
-Customer Experience \& Operations \\
-Product \& Project Support \\
-Process Improvement \& Data Reporting \\
-Digital Transformation \& Innovation \\
-Learning Design \& Knowledge Management \\
-Stakeholder Engagement \& Communication \\
-Problem Solving \& Critical Thinking
+\section{INTEREST}
+Data / Bitcoin / Movies / Traveling
 
-%----------------------------------------------------------------------------------------
-%	CERTIFICATIONS
-%----------------------------------------------------------------------------------------
+\section{LANGUAGES}
+English / Yoruba / French (Beginner)
 
-\section{CERTIFICATIONS \& TRAINING}
+\section{PROJECTS}
 
-\begin{itemize}[leftmargin=1em,itemsep=3pt,label=--]
-    \item Women Techsters Bootcamp: Technical Project Management
-    \item Google Project Management Certification
-\end{itemize}
+\begin{tabularx}{\linewidth}{@{}l X@{}}
+\textbf{Serverless Veeds} & \hfill \href{https://github.com/nully0x/serverless-veeds}{Github} \\
+& Developed to illustrate video sharing using serverless architecture within GCP ecosystem\\[10pt]
+\textbf{Tweet Annotator Helpers} & \hfill \href{https://github-gist.com}{github-gist} \\
+& Developed to annotate and classify text (tweets) extracts using Twitter API, to further subject to sentiment analysis. \\[10pt]
+\textbf{Udagram} & \hfill \href{https://github.com}{github} \\
+& An image-sharing web app. Implementing a set of resources on the AWS cloud environment using various stacks such as Kubernetes, RDS, S3, Cloudformation, Amplify, Docker, Nodejs and Ionic/Angular
+\end{tabularx}
 
-%----------------------------------------------------------------------------------------
-%	CAREER INTEREST
-%----------------------------------------------------------------------------------------
-
-\section{CAREER INTEREST}
-
-Exploring opportunities in operations, fintech, product development, learning strategy, and project management — with a focus on creating impactful, technology-driven solutions across industries.
+\section{CERTIFICATE}
+\textbf{Cloud Developer Nanodegree} - Udacity
 
 \vfill
 \center{\footnotesize Last updated: \today}
