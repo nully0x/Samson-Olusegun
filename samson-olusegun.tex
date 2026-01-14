@@ -9,7 +9,7 @@
 %	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 %	copies of the Software, and to permit persons to whom the Software is
 %	furnished to do so, subject to the following conditions:
-%	
+%
 %	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 %	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 %	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -17,7 +17,7 @@
 %	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 %	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 %	THE SOFTWARE.
-%	
+%
 %
 %-----------------------------------------------------------------------------------------------------------------------------------------------%
 
@@ -48,7 +48,7 @@
 %	PACKAGES
 %----------------------------------------------------------------------------------------
 \usepackage{url}
-\usepackage{parskip} 	
+\usepackage{parskip}
 
 %other packages for formatting
 \RequirePackage{color}
@@ -63,7 +63,7 @@
 \usepackage{enumitem}
 
 % centered version of 'X' col. type
-\newcolumntype{C}{>{\centering\arraybackslash}X} 
+\newcolumntype{C}{>{\centering\arraybackslash}X}
 
 %to prevent spillover of tabular into next pages
 \usepackage{supertabular}
@@ -72,11 +72,11 @@
 \setlength{\fullcollw}{0.47\textwidth}
 
 %custom \section
-\usepackage{titlesec}				
+\usepackage{titlesec}
 \usepackage{multicol}
 \usepackage{multirow}
 
-%CV Sections inspired by: 
+%CV Sections inspired by:
 %http://stefano.italians.nl/archives/26
 \titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
 \titlespacing{\section}{0pt}{10pt}{10pt}
@@ -118,7 +118,7 @@
     }
     {
     \end{itemize}
-    \end{minipage}    
+    \end{minipage}
     }
 
 
@@ -129,7 +129,7 @@
 \begin{document}
 
 % non-numbered pages
-\pagestyle{empty} 
+\pagestyle{empty}
 
 %----------------------------------------------------------------------------------------
 %	TITLE
@@ -143,10 +143,10 @@
 
 \begin{tabularx}{\linewidth}{@{} C @{}}
 \Huge{Samson Olusegun} \\[7.5pt]
-\textbf{Software Engineer} \\[10pt]
-\normalsize{\textit{Experience Summary}: A results-driven Software Engineer with a proven track record in translating business needs into efficient technical solutions. Specializes in Typescript, Rust, Python, and Cloud Development, with a keen interest in Bitcoin. Committed to continuous learning and innovation, actively engaged in both tech, and non-tech communities. Passionate about mentoring and fostering growth.} \\[10pt]
+\textbf{Backend Engineer \& Infrastructure Engineer} \\[10pt]
+\normalsize{\textit{Experience Summary}: Backend and Infrastructure Engineer specializing in cloud architecture, CI/CD automation, and production systems at scale. Expert in AWS, GCP, Kubernetes, Terraform, and building robust deployment pipelines. Experience owning infrastructure for payment systems and developer platforms. Strong foundation in Rust, TypeScript, and Python with focus on microservices, observability, and cost optimization.} \\[10pt]
 \href{https://linkedin.com/in/samson-olusegun}{\raisebox{-0.04\height}\faLinkedin\ Samson-Olusegun} \  $|$ \
-\href{https://twitter.com/nully0x}{\raisebox{-0.04\height}\faTwitter\ nully0x} \ $|$ \  
+\href{https://twitter.com/nully0x}{\raisebox{-0.04\height}\faTwitter\ nully0x} \ $|$ \
 \href{https://github.com/nully0x}{\raisebox{-0.04\height}\faGithub\ nully0x} \ $|$ \
 \href{https://www.nully0x.xyz}{\raisebox{-0.04\height}\faGlobe\ nully0x.xyz} \ $|$ \
 \href{mailto:nully0x@proton.me}{\raisebox{-0.04\height}\faEnvelope\ nully0x@proton.me} \ $|$ \
@@ -159,31 +159,35 @@
 
 \section{TECHNICAL EXPERIENCE}
 
-\begin{joblong}{Mavapay Digital Solutions, US -- Software Engineer (Remote)}{Dec 2024 -- Present}
-\item Architect and manage scalable backend infrastructure, ensuring high availability and performance for payments systems.
-\item Implement proactive monitoring, alerting, and incident response processes, reducing downtime by 30\%.
-\item Optimize cloud servers, networks, and databases to achieve cost savings and improved system reliability.
+\begin{joblong}{Mavapay Digital Solutions, US -- Backend \& Infrastructure Engineer (Remote)}{Dec 2024 -- Present}
+\item Own and manage complete infrastructure and deployment pipelines on GCP, architecting scalable backend systems ensuring 99.9\% uptime for payment processing.
+\item Design, build, and maintain end-to-end CI/CD pipelines from development to production, automating deployment workflows and improving release reliability.
+\item Architect and provision GCP infrastructure (Compute Engine, Cloud SQL, Cloud Storage, Load Balancers, VPCs) using infrastructure-as-code practices.
+\item Implement comprehensive monitoring, alerting, and incident response workflows, taking on-call responsibilities and reducing MTTR by 30\%.
+\item Optimize cloud infrastructure costs and performance through resource right-sizing, caching strategies, and database query optimization.
 \item Collaborate with CTO to design secure, high-performance backend architecture and product roadmaps.
 \item Develop backend systems on the Bitcoin protocol, enabling seamless crypto-based transactions.
 \end{joblong}
 
 \begin{joblong}{Chaincode Labs, US -- Open Source Developer (Remote)}{Mar 2023 -- Dec 2024}
-\item Engineered and maintained backend infrastructure for Bitcoin Dev Project platform, improving query response times by 40\%.
-\item Designed and built a transcript review system for knowledge based applications, increasing engagement and usability for bitcoin developers.
-\item Built cost-efficient deployment pipelines, reducing release time and improving reliability.
+\item Owned complete infrastructure and deployment pipelines for Bitcoin Dev Project platform, managing cloud resources, databases, and improving overall performance by 40\%.
+\item Architected, built, and maintained end-to-end CI/CD pipelines, deployment strategies, and release management processes.
+\item Designed and implemented a transcript review system for knowledge-based applications, increasing engagement and usability for Bitcoin developers.
 \item Integrated Lightning Network features (L402, sat rewards) to enhance micropayment processing.
 \end{joblong}
 
 \begin{joblong}{Kernel Systems, Nigeria -- Technical Lead (Remote, Part-Time)}{Oct 2022 -- Present}
 \item Led backend architecture design and code reviews, ensuring engineering best practices and maintainability.
-\item Delivered Bitcoin-powered payroll infrastructure supporting multi-currency settlements.
-\item Automated deployment pipelines to streamline release cycles and reduce operational overhead.
+\item Delivered Bitcoin-powered payroll infrastructure supporting multi-currency settlements with microservices architecture.
+\item Designed and automated deployment pipelines with CI/CD workflows to streamline release cycles and reduce operational overhead.
+\item Managed cloud infrastructure for production systems.
 \end{joblong}
 
 \begin{joblong}{Helgg, Nigeria -- Lead Backend Engineer (Remote, Part-Time)}{Aug 2022 -- May 2023}
-\item Built IoT-enabled e-scooter mobility backend systems, enabling real-time fleet monitoring.
-\item Defined API standards, CI/CD workflows, and infrastructure-as-code practices for engineering teams.
-\item Reduced operational issues through robust error handling and observability tooling.
+\item Built and deployed IoT-enabled e-scooter mobility backend systems with microservices architecture, enabling real-time fleet monitoring.
+\item Defined API standards, established CI/CD workflows with automated testing, and implemented infrastructure-as-code practices for engineering teams.
+\item Designed and implemented monitoring, logging, and alerting systems to track system health and performance.
+\item Reduced operational issues by 40\% through robust error handling, observability tooling, and proactive incident response.
 \end{joblong}
 
 \begin{joblong}{Qala Dev, Nigeria -- Bitcoin Protocol Developer Intern (Remote)}{Jan 2021 -- Jul 2021}
@@ -220,13 +224,14 @@ Adekunle Ajasin University & \textbf{Bachelor of Science in Economics} \\
 \section{SKILLS}
 
 \begin{tabularx}{\linewidth}{@{}l X@{}}
-\textbf{Programming} & HTML / CSS / Javascript Typescript / Python / Rust / Bitcoin Script / Zig \\
-\textbf{Concepts} & Design Implementation / Test-Driven Development / Microservices / Monolithics \\
-\textbf{Web Frameworks} & Angular / NodeJs / AdonisJs / Express / Actix / Svelte / Axum \\
-\textbf{Database} & MySQL / Firestore / MongoDB / PostgreSQL / DynamoDB \\
-\textbf{Tools} & Git / PowerApps / Docker / TravisCI / Kubernetes / Terraform / Github Actions / Ansible / Pulumi  \\
-\textbf{Data Processing} & Google Colab / Google Data Lab / Azure Data Studio / Microsoft Power BI / Eviews / SPSS / Excel \\
-\textbf{Cloud} & Google Cloud Platform / Azure / AWS / Heroku / Oracle Cloud
+\textbf{Cloud Platforms} & AWS / GCP / Azure / Heroku / Railway / Fly \\
+\textbf{Infrastructure \& DevOps} & Terraform / Kubernetes / Docker / Helm / CI/CD (GitHub Actions, TravisCI) / Ansible / Pulumi \\
+\textbf{Monitoring \& Observability} & CloudWatch / Prometheus / Grafana / DataDog / PagerDuty / Logging \& Alerting \\
+\textbf{Database} & PostgreSQL / MongoDB / Firestore / DuckDB \\
+\textbf{Programming} & TypeScript / JavaScript / Python / Rust / Zig / Node.js / Ruby / Bitcoin Script \\
+\textbf{Networking \& Security} & VPNs / IAM / SOC II Compliance / Network Architecture / Load Balancing \\
+\textbf{Backend Frameworks \& Libraries} & Node.js / Express / Actix / Axum \\
+\textbf{Architecture} & Microservices / Event-Driven Architecture / Fault Tolerance / High Availability / Disaster Recovery
 \end{tabularx}
 
 \section{INTEREST}
@@ -238,12 +243,14 @@ English / Yoruba / French (Beginner)
 \section{PROJECTS}
 
 \begin{tabularx}{\linewidth}{@{}l X@{}}
-\textbf{Serverless Veeds} & \hfill \href{https://github.com/nully0x/serverless-veeds}{Github} \\
-& Developed to illustrate video sharing using serverless architecture within GCP ecosystem\\[10pt]
-\textbf{Tweet Annotator Helpers} & \hfill \href{https://github-gist.com}{github-gist} \\
-& Developed to annotate and classify text (tweets) extracts using Twitter API, to further subject to sentiment analysis. \\[10pt]
-\textbf{Udagram} & \hfill \href{https://github.com}{github} \\
-& An image-sharing web app. Implementing a set of resources on the AWS cloud environment using various stacks such as Kubernetes, RDS, S3, Cloudformation, Amplify, Docker, Nodejs and Ionic/Angular
+\textbf{HXCKR - Bitcoin Education Platform (Org Founder)} & \hfill \href{https://github.com/hxckr-org}{Github} \\
+& Architected and built complete microservices platform for Open technical education(piloted with techical Bitcoin curriculum at Chaincode) using Kubernetes, Rust, TypeScript, Nix, and Docker. Designed and deployed K8s infrastructure, automated test runners, and git-based workflows. Built core LMS backend (Rust), frontend, automated code evaluation system, and CI/CD pipelines. Managed multi-environment deployments (staging/prod) with IaC, container orchestration, and observability tooling across 5+ repositories.\\[10pt]
+\textbf{NodeGaze - Lightning Network Observability Platform} & \hfill \href{https://github.com/Extheoisah/nodegaze}{Github} \\
+& Architected and built full-stack observability platform for Lightning Network nodes using Rust (Axum), SQLite, and Next.js. Implemented real-time monitoring, webhook integration, Discord notifications, and RESTful APIs. Designed database schema and migration system with SQLx.\\[10pt]
+\textbf{Remote Code Execution using Nix} & \hfill \href{https://github.com/nully0x/remote-code-execution-using-nix}{Github} \\
+& Developed experimental system for remote code execution using Nix for reproducible, isolated environments. Built with TypeScript/Node.js and Bun runtime, providing a lightweight alternative to Docker-based solutions with improved memory efficiency.\\[10pt]
+\textbf{Docker TCP Connector} & \hfill \href{https://github.com/nully0x/docker-tcp-connector}{Github} \\
+& Built Rust-based networking utility enabling TCP communication between Docker containers across different networks, facilitating inter-container communication for distributed systems and container log monitoring.
 \end{tabularx}
 
 \section{CERTIFICATE}
