@@ -26,7 +26,7 @@
 %----------------------------------------------------------------------------------------
 
 % article class because we want to fully customize the page and not use a cv template
-\documentclass[a4paper,12pt]{article}
+\documentclass[a4paper,11pt]{article}
 
 %----------------------------------------------------------------------------------------
 %	FONT
@@ -54,13 +54,15 @@
 \RequirePackage{color}
 \RequirePackage{graphicx}
 \usepackage[usenames,dvipsnames]{xcolor}
-\usepackage[scale=0.9]{geometry}
+\usepackage[scale=0.92]{geometry}
 
 %tabularx environment
 \usepackage{tabularx}
 
 %for lists within experience section
 \usepackage{enumitem}
+%keep job headers with their first bullet across page breaks
+\usepackage{needspace}
 
 % centered version of 'X' col. type
 \newcolumntype{C}{>{\centering\arraybackslash}X}
@@ -79,7 +81,7 @@
 %CV Sections inspired by:
 %http://stefano.italians.nl/archives/26
 \titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
-\titlespacing{\section}{0pt}{10pt}{10pt}
+\titlespacing{\section}{0pt}{8pt}{9pt}
 
 %for publications
 \usepackage[style=authoryear,sorting=ynt, maxbibnames=2]{biblatex}
@@ -93,6 +95,13 @@
 
 %for social icons
 \usepackage{fontawesome5}
+
+%make PDF text machine-readable for ATS parsers
+\input{glyphtounicode}
+\pdfgentounicode=1
+
+%ragged right text avoids stretched justification gaps
+\raggedright
 
 %debug page outer frames
 %\usepackage{showframe}
@@ -108,11 +117,17 @@
     {
     }
 
-\newenvironment{joblong}[2]
+\newenvironment{joblong}[3]
     {
-    \noindent\textbf{#1} \hfill #2 \\[3.75pt]
+    \needspace{6\baselineskip}
+    \parskip=0pt
+    \noindent
+    \begin{tabular*}{\textwidth}[t]{@{}l@{\extracolsep{\fill}}r@{}}
+    \textbf{#1} & #2 \\
+    \textit{#3} &
+    \end{tabular*}\\[2pt]
     \nopagebreak
-    \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt,label=--]
+    \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=2pt,label=--]
     }
     {
     \end{itemize}
@@ -141,13 +156,13 @@
 \begin{tabularx}{\linewidth}{@{} C @{}}
 \Huge{Samson Olusegun} \\[7.5pt]
 \textbf{Software Engineer} \\[10pt]
-\normalsize{\textit{Experience Summary}: Software Engineer specializing in backend systems, infrastructure, and DevOps. Built production infrastructure on GCP serving real-world applications with 99.9\% uptime. Proficient in Rust, TypeScript, and Kubernetes with proven ability to own full infrastructure lifecycle from design to production.} \\[10pt]
-\href{https://linkedin.com/in/samson-olusegun}{\raisebox{-0.04\height}\faLinkedin\ Samson-Olusegun} \  $|$ \
+\normalsize{\textit{Experience Summary}: I am a Software Engineer specializing in backend systems, cloud infrastructure, and DevOps. I have Built production infrastructure on GCP serving real-world applications with 99.9\% uptime. I a proficient in Rust, TypeScript, and Kubernetes with proven ability to own full infrastructure lifecycle from design to production.} \\[10pt]
+{\small \href{https://linkedin.com/in/samson-olusegun}{\raisebox{-0.04\height}\faLinkedin\ Samson-Olusegun} \  $|$ \
 \href{https://twitter.com/nully0x}{\raisebox{-0.04\height}\faTwitter\ nully0x} \ $|$ \
 \href{https://github.com/nully0x}{\raisebox{-0.04\height}\faGithub\ nully0x} \ $|$ \
 \href{https://nully0x.site}{\raisebox{-0.04\height}\faGlobe\ nully0x.site} \ $|$ \
 \href{mailto:nully0x@proton.me}{\raisebox{-0.04\height}\faEnvelope\ nully0x@proton.me} \ $|$ \
-\href{tel:+2349160918616}{\raisebox{-0.04\height}\faMobile\ +2349160918616}
+\href{tel:+2349160918616}{\raisebox{-0.04\height}\faMobile\ +2349160918616}}
 \end{tabularx}
 
 %----------------------------------------------------------------------------------------
@@ -156,9 +171,9 @@
 
 \section{TECHNICAL EXPERIENCE}
 
-\begin{joblong}{Mavapay Digital Solutions, US -- Backend \& Infrastructure Engineer (Remote)}{Dec 2024 -- Present}
+\begin{joblong}{Backend \& Infrastructure Engineer}{Dec 2024 -- Present}{Mavapay Digital Solutions, US (Remote)}
 \item Own complete infrastructure on GCP ensuring 99.9\% uptime for payment processing operations, enabling reliable transaction settlement for customers.
-\item Built automated CI/CD pipelines enabling faster feature delivery and zero-downtime deployments, reducing release risk and developer friction.
+\item Built CI/CD pipelines and release platform delivering zero-downtime deployments for backend services, reducing release risk.
 \item Owned the deployment lifecycle for the mavapay money mobile app (React Native + Expo/EAS): built and submitted production releases to the Apple App Store and Google Play, deployed over-the-air (OTA) updates with EAS Update, and automated the pipeline with Fastlane and GitHub Actions.
 \item Provisioned scalable GCP infrastructure using Terraform, enabling rapid environment setup and consistent deployments across staging and production.
 \item Built comprehensive monitoring and alerting system reducing MTTR by 30\%, minimizing payment processing disruptions and customer impact.
@@ -167,39 +182,39 @@
 \item Built Bitcoin-based settlement infrastructure enabling multi-currency transaction processing and reducing settlement friction.
 \end{joblong}
 
-\begin{joblong}{Chaincode Labs, US -- Open Source Developer (Remote)}{Mar 2023 -- Dec 2024}
+\begin{joblong}{Open Source Developer}{Mar 2023 -- Dec 2024}{Chaincode Labs, US (Remote)}
 \item Owned infrastructure for Bitcoin Dev Project platform, improving platform performance by 40\% and enabling faster technical discovery for Bitcoin developers.
 \item Built CI/CD automation reducing manual deployment overhead and enabling rapid iteration on educational content and features.
 \item Designed transcript review system for Bitcoin technical content, improving content quality and developer engagement on the platform.
 \item Integrated Lightning Network payment features (L402, sat rewards) enabling developers to earn microtransactions for contributions.
 \end{joblong}
 
-\begin{joblong}{Kernel Systems, Nigeria -- Technical Lead (Remote, Part-Time)}{Oct 2022 -- Present}
+\begin{joblong}{Technical Lead}{Oct 2022 -- Present}{Kernel Systems, Nigeria (Remote, Part-Time)}
 \item Led technical design and code reviews establishing engineering standards that improved code quality and reduced bugs in production.
 \item Delivered Bitcoin-powered payroll infrastructure enabling multi-currency salary payments and automated settlement for employees.
-\item Built automated deployment pipelines reducing release cycle time and enabling faster feature delivery to customers.
+\item Built deployment infrastructure powering API gateways and backend services, cutting release cycle time and enabling faster feature delivery.
 \item Owned the deployment lifecycle for Android releases of the payroll app (native Kotlin), automating builds, signing, and Google Play submissions with Fastlane and GitHub Actions, with staged rollouts and release monitoring.
 \item Managed cloud infrastructure ensuring system reliability and availability for payroll operations.
 \end{joblong}
 
-\begin{joblong}{Qala Dev, Nigeria -- Bitcoin Protocol Developer Intern (Remote)}{Jan 2021 -- Jul 2021}
+\begin{joblong}{Bitcoin Protocol Developer Intern}{Jan 2021 -- Jul 2021}{Qala Dev, Nigeria (Remote)}
 \item Contributed to open-source Bitcoin development projects, gaining hands-on experience with Bitcoin Core and Lightning Network protocols.
 \item Built Bitcoin testnet experiments and supported hackathons, helping developers learn Lightning Network integration.
 \end{joblong}
 
-\begin{joblong}{Adekunle Ajasin University, Nigeria -- Web Developer}{Jan 2021 -- Jun 2021}
+\begin{joblong}{Web Developer}{Jan 2021 -- Jun 2021}{Adekunle Ajasin University, Nigeria}
 \item Developed student portal web applications automating student requests across departments and reducing manual processing.
 \item Conducted QA testing and bug resolution, improving portal reliability and reducing service downtime for students.
 \end{joblong}
 
 \section{OTHER EXPERIENCE}
 
-\begin{joblong}{Propel, Germany -- Technical Jury (Remote)}{Nov 2022 -- Jan 2024}
+\begin{joblong}{Technical Jury}{Nov 2022 -- Jan 2024}{Propel, Germany (Remote)}
 \item Conducted 200+ technical interviews for software engineering candidates, improving acceptance quality by 15\%.
 \item Standardized evaluation frameworks reducing review cycle time by 20\% and improving hiring consistency.
 \end{joblong}
 
-\begin{joblong}{Tech4Dev, Nigeria -- Frontend Development Consultant (Contract)}{Aug 2022 -- Jun 2023}
+\begin{joblong}{Frontend Development Consultant}{Aug 2022 -- Jun 2023}{Tech4Dev, Nigeria (Contract)}
 \item Designed and delivered a modern frontend engineering curriculum for 200+ trainees.
 \item Created training resources and assessments that boosted trainee graduation rates.
 \end{joblong}
