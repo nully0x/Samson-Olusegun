@@ -1,0 +1,9 @@
+[0] Config.pm:324> INFO - This is Biber 2.21 (beta)
+[0] Config.pm:327> INFO - Logfile is 'samson-olusegun.blg'
+[140] biber:342> INFO - === Thu Nov 19, 2026, 00:00:55
+[180] Biber.pm:421> INFO - Reading 'samson-olusegun.bcf'
+[336] Biber.pm:1002> INFO - Found 0 citekeys in bib section 0
+[371] bbl.pm:676> INFO - Writing 'samson-olusegun.bbl' with encoding 'UTF-8'
+[371] bbl.pm:779> INFO - Output to samson-olusegun.bbl
+[371] Biber.pm:132> WARN - The file 'samson-olusegun.bcf' does not contain any citations!
+[371] Biber.pm:134> INFO - WARNINGS: 1
